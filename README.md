@@ -6,6 +6,10 @@ https://github.com/praneethnarisetty/Udagram-Microservice-Web-Application
 
 
 ## Tasks
+The udacity-c3-deployment folder, contains docker files and k8s deployment, services files.
+The udacity-c3-frontend contains simple Ionic client web application.
+The udacity-c3-restapi-feed contains a nodejs microservice for feed management.
+The udacity-c3-restapi-user contains a nodejs microservice for user management.\
 
 ### Setup Docker Environment
 You'll need to install docker https://docs.docker.com/install/. Open a new terminal within the project directory and run:
@@ -31,23 +35,23 @@ You'll need to install docker https://docs.docker.com/install/. Open a new termi
 ### Setup Kubernetes environment
 You will need to install the kubectl command. Open a new terminal within the project directory and run:
 
-1. Generate encrypted values for aws credentials, Database User Name, and Database Password using bcrypt and put the values into aws-secret.yaml and env-secret.yaml files
-2. Load secret files: 
+##1. Generate encrypted values for aws credentials, Database User Name, and Database Password using bcrypt and put the values into aws-secret.yaml and env-secret.yaml files
+##2. Load secret files: 
 	- `kubectl apply -f aws-secret.yaml`
 	- `kubectl apply -f env-secret.yaml`
-3. Load config map: `kubectl apply -f env-configmap.yaml`
-4. Apply Deployments:
+##3. Load config map: `kubectl apply -f env-configmap.yaml`
+##4. Apply Deployments:
 	- `kubectl apply -f backend-feed-deployment.yaml`
 	- `kubectl apply -f frontend-deployment.yaml`
 	- `kubectl apply -f backend-user-deployment.yaml`
-5. Apply Services:
+##5. Apply Services:
 	- `kubectl apply -f backend-feed-service.yaml`
 	- `kubectl apply -f backend-user-service.yaml`
 	- `kubectl apply -f frontend-service.yaml`
-6. Deploy reverse proxy
+##6. Deploy reverse proxy
 	- `kubectl apply -f reverseproxy-deployment.yaml`
 	- `kubectl apply -f reverseproxy-service.yaml`
-7. Perform port forwarding 
+##7. Perform port forwarding 
 	- `kubectl port-forward service/frontend 8100:8100`
 	- `kubectl port-forward service/reverseproxy 8080:8080`
 
